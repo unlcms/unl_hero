@@ -12,7 +12,7 @@ function _unl_hero_field_create_instances($bundle) {
       'bundle' => $bundle,
       'entity_type' => 'node',
       'label' => t('Hero size'),
-      'description' => t('This is the hero size.'),
+      'description' => t('If set to <i>- None -</i> then the fields below won\'t be used and a hero won\'t be displayed.'),
       'required' => FALSE,
       'display' => array(
         'default' => array('label' => 'hidden'),
@@ -30,7 +30,7 @@ function _unl_hero_field_create_instances($bundle) {
       'bundle' => $bundle,
       'entity_type' => 'node',
       'label' => t('Hero title'),
-      'description' => t('This is the hero title.'),
+      'description' => t('(Optional) If left empty, the <i>Title</i> field will be used.'),
       'required' => FALSE,
       'display' => array(
         'default' => array('label' => 'hidden'),
@@ -45,7 +45,6 @@ function _unl_hero_field_create_instances($bundle) {
       'bundle' => $bundle,
       'entity_type' => 'node',
       'label' => t('Hero subhead (above)'),
-      'description' => t('This is the hero subhead.'),
       'required' => FALSE,
       'display' => array(
         'default' => array('label' => 'hidden'),
@@ -60,7 +59,6 @@ function _unl_hero_field_create_instances($bundle) {
       'bundle' => $bundle,
       'entity_type' => 'node',
       'label' => t('Hero subhead (below)'),
-      'description' => t('This is the hero subhead.'),
       'required' => FALSE,
       'display' => array(
         'default' => array('label' => 'hidden'),
@@ -75,7 +73,6 @@ function _unl_hero_field_create_instances($bundle) {
       'bundle' => $bundle,
       'entity_type' => 'node',
       'label' => t('Hero image'),
-      'description' => t('This is the hero image.'),
       'required' => FALSE,
       'display' => array(
         'default' => array(
