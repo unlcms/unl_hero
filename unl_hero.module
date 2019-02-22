@@ -1,0 +1,89 @@
+<?php
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function unl_hero_form_field_ui_field_overview_form_alter(&$form, &$form_state, $form_id) {
+  $form['#after_build'][] = '_unl_hero_after_build';
+}
+
+function _unl_hero_after_build($form, &$form_state) {
+// Doesn't work to hide these fields on admin/structure/types/manage/%/fields
+//  $groups_to_hide = array('group_unlcms_hero');
+//  field_group_hide_field_groups($form, $groups_to_hide);
+
+  // Only way found to hide/disable fields on this form.
+  //$form['fields']['group_unlcms_hero']['#attributes']['class'][] = 'element-hidden';
+  //$form['fields']['body']['#attributes']['class'][] = 'element-hidden';
+
+  return $form;
+}
+
+/**
+ * Implements hook_form_FORM_ID_alter().
+ */
+function unl_hero_form_field_ui_display_overview_form_alter(&$form, &$form_state, $form_id) {
+
+  // Only way found to hide/disable fields on this form.
+  //$form['fields']['body']['#attributes']['class'][] = 'element-hidden';
+}
+
+
+/**
+ * Implements hook_ctools_plugin_api().
+ * This hook is needed to let ctools know about exportables.
+ * If you create field groups by using hook_field_group_info, you
+ * will need to include the ctools api hook as well.
+ */
+function unl_hero_ctools_plugin_api($module, $api) {
+  if ($module == 'field_group' && $api == 'field_group') {
+    return array('version' => 1);
+  }
+}
+
+/**
+ * Implements hook_field_group_info().
+ */
+function unl_hero_field_group_info() {
+  $field_groups = array();
+
+  foreach (node_type_get_types() as $node_machine_name => $node_type) {
+    $identifier = "group_unl_hero|node|{$node_machine_name}|form";
+
+    $field_group = new stdClass;
+    $field_group->api_version = 1;
+    $field_group->identifier = $identifier;
+    $field_group->group_name = 'group_unl_hero';
+    $field_group->entity_type = 'node';
+    $field_group->bundle = $node_machine_name;
+    $field_group->mode = 'form';
+    $field_group->parent_name = '';
+    $field_group->data = array(
+      'label' => 'Hero',
+      'weight' => '50',
+      'children' => array(
+        0 => 'field_unl_hero_title',
+        1 => 'field_unl_hero_subhead',
+      ),
+      'format_type' => 'tab',
+      'format_settings' => array(
+        'formatter' => 'collapsible',
+        'instance_settings' => array(
+          'classes' => '',
+          'required_fields' => 1,
+        ),
+      ),
+    );
+    $field_groups[$identifier] = $field_group;
+  }
+
+  return $field_groups;
+}
+
+/**
+ * Implements hook_node_type_insert().
+ */
+function unl_hero_node_type_insert($info) {
+  module_load_include('inc', 'unl_hero', 'unl_hero');
+  _unl_hero_field_create_instances($info->type);
+}

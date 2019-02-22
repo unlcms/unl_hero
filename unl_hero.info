@@ -1,0 +1,6 @@
+name = UNL Hero
+description = Adds Hero tab to nodes. For use with the unl_five theme.
+package = UNL
+core = 7.x
+version = "7.x-1.x"
+dependencies[] = field_group

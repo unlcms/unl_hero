@@ -1,0 +1,53 @@
+<?php
+
+/**
+ * Implements hook_install().
+ */
+function unl_hero_install() {
+  $hero_fields = array();
+
+  // Define fields.
+  $hero_fields['title'] = array(
+    'active' => '1',
+    'cardinality' => '1',
+    'deleted' => '0',
+    'entity_types' => array(),
+    'field_name' => 'field_unl_hero_title',
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => '255',
+    ),
+    'type' => 'text',
+  );
+  $hero_fields['subhead'] = array(
+    'active' => '1',
+    'cardinality' => '1',
+    'deleted' => '0',
+    'entity_types' => array(),
+    'field_name' => 'field_unl_hero_subhead',
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => '255',
+    ),
+    'type' => 'text',
+  );
+
+
+
+
+  // Create fields.
+  foreach ($hero_fields as $hero_field) {
+    if (!field_info_field($hero_field['field_name'])) {
+      field_create_field($hero_field);
+    }
+  }
+
+  // Attach fields to each content type.
+  module_load_include('inc', 'unl_hero', 'unl_hero');
+  foreach (node_type_get_types() as $node_machine_name => $node_type) {
+    _unl_hero_field_create_instances($node_machine_name);
+  }
+}
+
+
+
