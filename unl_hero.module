@@ -60,7 +60,7 @@ function unl_hero_field_group_info() {
     $field_group->parent_name = '';
     $field_group->data = array(
       'label' => 'Hero',
-      'weight' => '5',
+      'weight' => '35', // Vertical tab weight = (-30 + this value)
       'children' => array(
         0 => 'field_unl_hero_size',
         1 => 'field_unl_hero_title',

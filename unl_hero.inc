@@ -69,7 +69,6 @@ function _unl_hero_field_create_instances($bundle) {
     field_create_instance($instance);
   }
 
-
   if (!field_info_instance('node', 'field_unl_hero_image', $bundle)) {
     $instance = array(
       'field_name' => 'field_unl_hero_image',
@@ -110,4 +109,5 @@ function _unl_hero_field_create_instances($bundle) {
     );
     field_create_instance($instance);
   }
+
 }
