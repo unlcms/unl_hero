@@ -90,3 +90,21 @@ function unl_hero_node_type_insert($info) {
   module_load_include('inc', 'unl_hero', 'unl_hero');
   _unl_hero_field_create_instances($info->type);
 }
+
+/**
+ * Implements hook_image_default_styles().
+ */
+function unl_hero_image_default_styles() {
+  $styles = array();
+  $styles['unl_hero_large'] = array(
+    'label' => 'UNL Hero Large (1600)',
+    'effects' => array(
+      array(
+        'name' => 'image_scale',
+        'data' => array('width' => 1600, 'upscale' => 0),
+        'weight' => 0,
+      ),
+    ),
+  );
+  return $styles;
+}

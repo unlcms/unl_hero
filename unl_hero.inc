@@ -77,7 +77,7 @@ function _unl_hero_field_create_instances($bundle) {
       'display' => array(
         'default' => array(
           'label' => 'hidden',
-          'settings' => array('image_style' => 'large', 'image_link' => ''),
+          'settings' => array('image_style' => 'unl_hero_large', 'image_link' => ''),
         ),
       ),
       'settings' => array(
