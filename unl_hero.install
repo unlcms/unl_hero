@@ -19,17 +19,58 @@ function unl_hero_install() {
     ),
     'type' => 'text',
   );
-  $hero_fields['subhead'] = array(
+  $hero_fields['subhead1'] = array(
     'active' => '1',
     'cardinality' => '1',
     'deleted' => '0',
     'entity_types' => array(),
-    'field_name' => 'field_unl_hero_subhead',
+    'field_name' => 'field_unl_hero_subhead1',
     'module' => 'text',
     'settings' => array(
       'max_length' => '255',
     ),
     'type' => 'text',
+  );
+  $hero_fields['subhead2'] = array(
+    'active' => '1',
+    'cardinality' => '1',
+    'deleted' => '0',
+    'entity_types' => array(),
+    'field_name' => 'field_unl_hero_subhead2',
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => '255',
+    ),
+    'type' => 'text',
+  );
+  $hero_fields['size'] = array(
+    'active' => '1',
+    'cardinality' => '1',
+    'deleted' => '0',
+    'entity_types' => array(),
+    'field_name' => 'field_unl_hero_size',
+    'module' => 'list',
+    'type' => 'list_text',
+    'settings' => array(
+      'allowed_values' => array(
+        'dcf-hero-sm' => 'dcf-hero-sm',
+        'dcf-hero-md' => 'dcf-hero-md',
+        'dcf-hero-lg' => 'dcf-hero-lg',
+      ),
+      'allowed_values_function' => '',
+    ),
+  );
+  $hero_fields['image'] = array(
+    'active' => '1',
+    'cardinality' => '1',
+    'deleted' => '0',
+    'entity_types' => array(),
+    'field_name' => 'field_unl_hero_image',
+    'type' => 'image',
+    'settings' => array(
+      'uri_scheme' => 'public',
+      'default_image' => FALSE,
+    ),
   );
 
 

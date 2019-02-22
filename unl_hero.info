@@ -4,3 +4,6 @@ package = UNL
 core = 7.x
 version = "7.x-1.x"
 dependencies[] = field_group
+dependencies[] = list
+dependencies[] = image
+dependencies[] = text

@@ -63,7 +63,10 @@ function unl_hero_field_group_info() {
       'weight' => '50',
       'children' => array(
         0 => 'field_unl_hero_title',
-        1 => 'field_unl_hero_subhead',
+        1 => 'field_unl_hero_subhead1',
+        2 => 'field_unl_hero_subhead2',
+        3 => 'field_unl_hero_size',
+        4 => 'field_unl_hero_image',
       ),
       'format_type' => 'tab',
       'format_settings' => array(
