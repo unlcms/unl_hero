@@ -5,6 +5,25 @@
  * and in unl_hero_node_type_insert() when a new content type is created.
  */
 function _unl_hero_field_create_instances($bundle) {
+
+  if (!field_info_instance('node', 'field_unl_hero_size', $bundle)) {
+    $instance = array(
+      'field_name' => 'field_unl_hero_size',
+      'bundle' => $bundle,
+      'entity_type' => 'node',
+      'label' => t('Hero size'),
+      'description' => t('This is the hero size.'),
+      'required' => FALSE,
+      'display' => array(
+        'default' => array('label' => 'hidden'),
+      ),
+      'widget' => array(
+        'type' => 'options_select',
+      ),
+    );
+    field_create_instance($instance);
+  }
+
   if (!field_info_instance('node', 'field_unl_hero_title', $bundle)) {
     $instance = array(
       'field_name' => 'field_unl_hero_title',
@@ -50,23 +69,6 @@ function _unl_hero_field_create_instances($bundle) {
     field_create_instance($instance);
   }
 
-  if (!field_info_instance('node', 'field_unl_hero_size', $bundle)) {
-    $instance = array(
-      'field_name' => 'field_unl_hero_size',
-      'bundle' => $bundle,
-      'entity_type' => 'node',
-      'label' => t('Hero size'),
-      'description' => t('This is the hero size.'),
-      'required' => FALSE,
-      'display' => array(
-        'default' => array('label' => 'hidden'),
-      ),
-      'widget' => array(
-        'type' => 'options_select',
-      ),
-    );
-    field_create_instance($instance);
-  }
 
   if (!field_info_instance('node', 'field_unl_hero_image', $bundle)) {
     $instance = array(

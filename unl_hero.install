@@ -7,6 +7,23 @@ function unl_hero_install() {
   $hero_fields = array();
 
   // Define fields.
+  $hero_fields['size'] = array(
+    'active' => '1',
+    'cardinality' => '1',
+    'deleted' => '0',
+    'entity_types' => array(),
+    'field_name' => 'field_unl_hero_size',
+    'module' => 'list',
+    'type' => 'list_text',
+    'settings' => array(
+      'allowed_values' => array(
+        'dcf-hero-sm' => 'dcf-hero-sm',
+        'dcf-hero-md' => 'dcf-hero-md',
+        'dcf-hero-lg' => 'dcf-hero-lg',
+      ),
+      'allowed_values_function' => '',
+    ),
+  );
   $hero_fields['title'] = array(
     'active' => '1',
     'cardinality' => '1',
@@ -43,23 +60,6 @@ function unl_hero_install() {
     ),
     'type' => 'text',
   );
-  $hero_fields['size'] = array(
-    'active' => '1',
-    'cardinality' => '1',
-    'deleted' => '0',
-    'entity_types' => array(),
-    'field_name' => 'field_unl_hero_size',
-    'module' => 'list',
-    'type' => 'list_text',
-    'settings' => array(
-      'allowed_values' => array(
-        'dcf-hero-sm' => 'dcf-hero-sm',
-        'dcf-hero-md' => 'dcf-hero-md',
-        'dcf-hero-lg' => 'dcf-hero-lg',
-      ),
-      'allowed_values_function' => '',
-    ),
-  );
   $hero_fields['image'] = array(
     'active' => '1',
     'cardinality' => '1',
@@ -84,9 +84,6 @@ function unl_hero_install() {
     ),
     'type' => 'text',
   );
-
-
-
 
   // Create fields.
   foreach ($hero_fields as $hero_field) {

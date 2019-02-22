@@ -60,12 +60,12 @@ function unl_hero_field_group_info() {
     $field_group->parent_name = '';
     $field_group->data = array(
       'label' => 'Hero',
-      'weight' => '50',
+      'weight' => '5',
       'children' => array(
-        0 => 'field_unl_hero_title',
-        1 => 'field_unl_hero_subhead1',
-        2 => 'field_unl_hero_subhead2',
-        3 => 'field_unl_hero_size',
+        0 => 'field_unl_hero_size',
+        1 => 'field_unl_hero_title',
+        2 => 'field_unl_hero_subhead1',
+        3 => 'field_unl_hero_subhead2',
         4 => 'field_unl_hero_image',
         5 => 'field_unl_hero_photo_credit',
       ),
