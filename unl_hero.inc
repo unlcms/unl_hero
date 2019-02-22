@@ -94,4 +94,18 @@ function _unl_hero_field_create_instances($bundle) {
     );
     field_create_instance($instance);
   }
+
+  if (!field_info_instance('node', 'field_unl_hero_photo_credit', $bundle)) {
+    $instance = array(
+      'field_name' => 'field_unl_hero_photo_credit',
+      'bundle' => $bundle,
+      'entity_type' => 'node',
+      'label' => t('Photo credit'),
+      'required' => FALSE,
+      'display' => array(
+        'default' => array('label' => 'hidden'),
+      ),
+    );
+    field_create_instance($instance);
+  }
 }

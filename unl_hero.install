@@ -72,6 +72,18 @@ function unl_hero_install() {
       'default_image' => FALSE,
     ),
   );
+  $hero_fields['photo_credit'] = array(
+    'active' => '1',
+    'cardinality' => '1',
+    'deleted' => '0',
+    'entity_types' => array(),
+    'field_name' => 'field_unl_hero_photo_credit',
+    'module' => 'text',
+    'settings' => array(
+      'max_length' => '255',
+    ),
+    'type' => 'text',
+  );
 
 
 

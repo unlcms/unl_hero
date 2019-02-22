@@ -67,6 +67,7 @@ function unl_hero_field_group_info() {
         2 => 'field_unl_hero_subhead2',
         3 => 'field_unl_hero_size',
         4 => 'field_unl_hero_image',
+        5 => 'field_unl_hero_photo_credit',
       ),
       'format_type' => 'tab',
       'format_settings' => array(
