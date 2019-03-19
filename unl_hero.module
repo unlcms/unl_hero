@@ -13,10 +13,12 @@ function _unl_hero_after_build($form, &$form_state) {
   //field_group_hide_field_groups($form, $groups_to_hide);
 
   // Only way found to hide/disable fields on this form so users can't modify them.
-  $form['fields']['group_unl_hero']['#attributes']['class'][] = 'element-hidden';
-  foreach ($form['fields'] as $key => $field) {
-    if (substr( $key, 0, 15 ) === 'field_unl_hero_') {
-      $form['fields'][$key]['#attributes']['class'][] = 'element-hidden';
+  if (array_key_exists('group_unl_hero', $form['fields'])) {
+    $form['fields']['group_unl_hero']['#attributes']['class'][] = 'element-hidden';
+    foreach ($form['fields'] as $key => $field) {
+      if (substr( $key, 0, 15 ) === 'field_unl_hero_') {
+        $form['fields'][$key]['#attributes']['class'][] = 'element-hidden';
+      }
     }
   }
 
