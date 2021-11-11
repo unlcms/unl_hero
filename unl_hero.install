@@ -95,7 +95,9 @@ function unl_hero_install() {
   // Attach fields to each content type.
   module_load_include('inc', 'unl_hero', 'unl_hero');
   foreach (node_type_get_types() as $node_machine_name => $node_type) {
-    _unl_hero_field_create_instances($node_machine_name);
+    if (!in_array($node_machine_name, array('admission', 'mindset'))) {
+      _unl_hero_field_create_instances($node_machine_name);
+    }
   }
 }
 
