@@ -57,7 +57,7 @@ function unl_hero_field_group_info() {
   $field_groups = array();
 
   foreach (node_type_get_types() as $node_machine_name => $node_type) {
-   if (!in_array($node_machine_name, array('admission', 'mindset'))) {
+   if (!in_array($node_machine_name, array('admission', 'major', 'mindset'))) {
     $identifier = "group_unl_hero|node|{$node_machine_name}|form";
 
     $field_group = new stdClass;
@@ -99,7 +99,7 @@ function unl_hero_field_group_info() {
  * Implements hook_node_type_insert().
  */
 function unl_hero_node_type_insert($info) {
-  if (!in_array($info->type, array('admission', 'mindset'))) {  
+  if (!in_array($info->type, array('admission', 'major', 'mindset'))) {
     module_load_include('inc', 'unl_hero', 'unl_hero');
     _unl_hero_field_create_instances($info->type);
   }
